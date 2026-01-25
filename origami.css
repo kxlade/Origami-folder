@@ -1,0 +1,304 @@
+body {
+  background-color: #f5f3ef;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  body {
+    background: radial-gradient(circle, #8b4513 0%, #808080 100%);
+  }
+}
+h1, h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+}
+
+header {
+  background-color: rgb(101, 11, 101);
+  color: white;
+  padding: 25px 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+nav {
+  background-color: #343a40;
+  text-align: center;
+  justify-content: center;
+  padding: 12px 0;
+  display: flex;
+  gap: 40px;
+}
+
+nav a {
+  color: #cb37f8;
+  text-decoration: none;
+  /* margin: 0 20px; */
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  align-self: center;
+}
+
+nav a button {
+  padding: 6px;
+  background-color: brown;
+  border: none;
+  border-radius: 6px;
+  font-size: medium;
+  cursor: pointer;
+  transition: all 0.6s;
+}
+
+nav a button:hover {
+  transform: scale(1.05);
+  background-color: rgb(202, 87, 87);
+}
+
+nav a:hover {
+  color: #ff6347;
+  text-decoration: underline;
+}
+
+section {
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 900px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.174);
+  transition: all 0.3s ease;
+
+}
+section:hover{
+  box-shadow: 0 7px 18px rgba(72, 71, 71, 0.97);
+  transform: translateY(-6px) rotateY(10deg) scale(1.001);
+}
+#about p {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 8s ease;
+}
+#about:hover p{
+  max-height: 600px;
+}
+.flipbook {
+  display: flex;
+  perspective: 1000px;
+}
+
+.page {
+  width: 150px;
+  height: 150px;
+  margin-right: -50px;
+  background: #fffdf8;
+  border-radius: 6px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.page:hover {
+  transform: rotateY(-180deg);
+}
+
+
+
+.head {
+  text-align: center;
+}
+.about p{
+font-family: 'Patrick Hand', cursive;
+  font-size: large;
+  letter-spacing: 0.4px;
+  line-height: 1.8;
+}
+#categories ul{
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#categories li{
+  padding: 10px;
+  list-style:circle;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.107);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#categories li:hover{
+  transform: scale(1.019);
+  list-style: decimal;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.208);
+}
+#categories ul a{
+  font-weight: bold;
+  text-decoration: none;
+  color: #343a40;
+}
+
+form {
+    max-width: 650px;
+    margin: 25px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+form input::placeholder, form textarea::placeholder{
+    transition: all 0.7s;
+}
+form input:focus::placeholder, form textarea:focus::placeholder{
+    transform: translate(3px) scale(0.96);
+}
+
+form button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button.send .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+}
+
+button.send .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.send .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.send .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+button.send .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:hover .circle {
+    width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+    background: #ffffff;
+    transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+    color: #fff;
+}
+
+
+
+footer {
+    background-color: rgb(49, 5, 49);
+    color: white;
+    margin-top: 10%;
+    margin-bottom: -20px;
+}
+
+footer #writings {
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    gap: 52px;
+    margin-bottom: 20px;
+}
+
+#writings p, a{
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+footer hr {
+    margin-top: 50px;  /* adjust as needed */
+    position: relative;
+    top: -50px;  /* nudge it upward manually if needed */
+}
+
+@media (max-width: 600px) {
+    footer #writings {
+        flex-direction: column;
+        height: auto;
+        color: #007bff;
+    }
+}
