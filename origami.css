@@ -37,6 +37,7 @@ nav {
   justify-content: center;
   padding: 12px 0;
   display: flex;
+  flex-wrap: wrap;
   gap: 40px;
 }
 
@@ -155,6 +156,17 @@ section:hover{
   gap: 15px;
   justify-content: center;
 }
+.gallery div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+.gallery p{
+  font-family: cursive;
+  font-size: large;
+  color: black;
+}
 .gallery img{
   width: 300px;
   height: auto;
@@ -168,6 +180,10 @@ section:hover{
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
+.gallery img:active{
+  transform: scale(0.95);
+}
+
 
 form {
     max-width: 650px;
