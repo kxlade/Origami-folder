@@ -1,8 +1,8 @@
 body {
   background-color: #f5f3ef;
   background-image:
-    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.048) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.046) 1px, transparent 1px);
   background-size: 20px 20px;
   margin: 0;
 }
@@ -99,42 +99,39 @@ section:hover{
 .page {
   width: 150px;
   height: 150px;
-  margin-right: -50px;
   background: #fffdf8;
   border-radius: 6px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   transform-style: preserve-3d;
-  transition: transform 0.6s;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   cursor: pointer;
+  transition: all 0.96s;
 }
 
 .page:hover {
   transform: rotateY(-180deg);
 }
 
-
-
 .head {
   text-align: center;
 }
 .about p{
-font-family: 'Patrick Hand', cursive;
-  font-size: large;
-  letter-spacing: 0.4px;
+  font-family: 'Patrick Hand', cursive;
+  font-weight: medium;
+  font-size: larger;
+  letter-spacing: 0.5px;
   line-height: 1.8;
 }
 #categories ul{
   font-size: large;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 #categories li{
-  padding: 10px;
+  padding: 7px;
   list-style:circle;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.107);
   border-radius: 9px;
@@ -144,12 +141,32 @@ font-family: 'Patrick Hand', cursive;
 #categories li:hover{
   transform: scale(1.019);
   list-style: decimal;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.208);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.208);
 }
 #categories ul a{
   font-weight: bold;
   text-decoration: none;
   color: #343a40;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.gallery img{
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  margin: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.gallery img:hover{
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 form {
