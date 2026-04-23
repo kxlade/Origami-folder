@@ -1,97 +1,190 @@
-let summ = document.getElementById('sumar');
-let para = document.getElementById('about');
-let toggleLang = document.getElementById('toggleLang');
+const aboutContent = document.getElementById("about-content");
+const summariseButton = document.getElementById("summarise");
+const resetButton = document.getElementById("resetAbout");
+const languageButton = document.getElementById("toggleLang");
+const readMoreButton = document.getElementById("readmore");
+const reloadButton = document.getElementById("relodd");
+const backToTop = document.querySelector(".back-to-top");
+const footerCreatorLink = document.getElementById("footerCreatorLink");
+const origamiLoader = document.getElementById("origamiLoader");
 
-let text = `This website is designed to showcase the beauty, creativity, and
+const englishInitial = `
+    <h1 class="head">Introduction to Origami</h1>
+    <p id="paras">
+        Origami is the traditional Japanese art of paper folding, where a single
+        sheet of paper is transformed into beautiful shapes without cutting or
+        using glue. Over the years, origami has evolved from a cultural practice
+        into a creative art form enjoyed by people of all ages across the world.
+        This website is designed to showcase the beauty, creativity, and
         educational value of origami through various designs, categories, and
-        step-by-step instructions. <br> <br>
-        &nbsp; The Origami Website serves as a complete guide for beginners,
-        children, and advanced learners who are interested in learning paper
-        folding techniques. It highlights different origami designs such as
-        animals, birds, flowers, faces, and many more, while also providing
-        easy-to-follow steps and images for each design. The website is
-        structured in a user-friendly manner to help visitors explore origami 
-        concepts and techniques with ease. Whether you are a novice or an
-        experienced folder, this website has something for everyone who wants to
-        delve into the fascinating world of origami.`;
-            
-summ.addEventListener("click", () => {
-    para.innerHTML = text;
-    para.style.fontFamily = "cursive";
-    para.style.fontSize = "17px";
-    
-})
+        step-by-step instructions.
+        <br><br>
+        The Origami Website serves as a complete guide for beginners, children,
+        and advanced learners who are interested in learning paper folding
+        techniques. It highlights different origami designs such as animals,
+        birds, flowers, faces, and many more, while also providing
+        easy-to-follow steps and images for each design.
+    </p>
+    <p id="paras">
+        You will find lots of wonderful origami models to fold at
+        <a href="https://origami.guide/" style="font-weight: bolder">origami.guide</a>,
+        many of which are unique and fun to try.
+    </p>
 
+    <h1 class="head" id="headd">About Origami</h1>
+    <p id="paras">
+        Origami originated in Japan over a thousand years ago, where it was
+        considered both a ceremonial practice and a form of artistic expression.
+        The word <em>origami</em> comes from two Japanese words: <em>ori</em>
+        (folding) and <em>kami</em> (paper). Over time, origami spread across
+        cultures and became a global art form used in education, mathematics,
+        design, and even engineering.
+    </p>
+    <p id="paras">
+        Learn more about the origins of origami
+        <a href="https://origami.guide/history-of-origami/" style="font-weight: bolder">here</a>.
+    </p>
+`;
 
-let readmore = document.getElementById('readmore');
-let fullText = `Origami, the ancient Japanese art of paper folding, has captivated
+const englishSummary = `
+    <p>
+        This website is designed to showcase the beauty, creativity, and
+        educational value of origami through tutorials, categories, and
+        easy-to-follow inspiration for beginners and advanced folders.
+    </p>
+`;
+
+const englishFull = `
+    <p>
+        Origami, the ancient Japanese art of paper folding, has captivated
         enthusiasts around the world for centuries. This website is dedicated to
-        showcasing the beauty, creativity, and educational value of origami through
-        various designs, categories, and step-by-step instructions. <br> <br>   
-        &nbsp; The Origami Website serves as a complete guide for beginners,
-        children, and advanced learners who are interested in learning paper
-        folding techniques. It highlights different origami designs such as
-        animals, birds, flowers, faces, and many more, while also providing
-        easy-to-follow steps and images for each design. The website is
-        structured in a user-friendly manner to help visitors explore origami
-        concepts and techniques with ease. Whether you are a novice or an
-        experienced folder, this website has something for everyone who wants to
-        delve into the fascinating world of origami. <br> <br>
-        &nbsp; Origami is not just a craft; it is a form of artistic expression
-        that encourages creativity, patience, and precision. Through the process
-        of folding paper, individuals can develop fine motor skills, enhance
-        spatial awareness, and cultivate a sense of mindfulness. The website
-        emphasizes these benefits and aims to inspire visitors to explore their
-        artistic potential through origami. <br> <br>
-        &nbsp; In addition to providing instructions for various origami designs,
-        the website also delves into the history and cultural significance of
-        origami. It explores the origins of this ancient art form, its evolution
-        over time, and its impact on different cultures around the world. By
-        understanding the rich heritage of origami, visitors can gain a deeper
-        appreciation for this timeless craft. <br> <br>
-        &nbsp; Overall, the Origami Website is a comprehensive resource for anyone
-        interested in the art of paper folding. It combines educational content,
-        creative inspiration, and practical instructions to help individuals of all
-        ages and skill levels discover the joy of origami. Whether you are looking
-        to create simple designs or intricate masterpieces, this website is your
-        gateway to the wonderful world of origami. So grab a piece of paper and
-        start folding your way to extraordinary possibilities.`;
-readmore.addEventListener("click", () => {
-    para.innerHTML = fullText;
-    para.style.fontFamily = "cursive";
-    para.style.fontSize = "17px";
-})
+        showcasing the beauty, creativity, and educational value of origami
+        through various designs, categories, and step-by-step instructions.
+        <br><br>
+        The Origami Website serves as a complete guide for beginners, children,
+        and advanced learners who are interested in learning paper folding
+        techniques. It highlights different origami designs such as animals,
+        birds, flowers, faces, and many more, while also providing
+        easy-to-follow steps and images for each design.
+        <br><br>
+        Origami is not just a craft. It is a form of artistic expression that
+        encourages creativity, patience, and precision. Through the process of
+        folding paper, individuals can develop fine motor skills, enhance
+        spatial awareness, and cultivate a sense of mindfulness.
+        <br><br>
+        In addition to providing instructions for various origami designs, this
+        website also explores the history and cultural significance of origami.
+        It shows how a simple fold can become something meaningful, beautiful,
+        and even useful in other fields.
+    </p>
+`;
 
+const japaneseText = `
+    <h1 class="head">Origami in Japanese</h1>
+    <p>
+        折り紙は、日本の伝統的な紙の芸術であり、一枚の紙を折ることで
+        さまざまな形を作り出します。このサイトでは、折り紙の美しさ、
+        楽しさ、そして学びの価値を紹介しています。
+        <br><br>
+        初心者から上級者まで楽しめるように、いろいろな作品や参考リンクを
+        まとめています。英語版に戻ると、より詳しい説明も読むことができます。
+    </p>
+`;
 
+let currentLanguage = "en";
+let currentView = "initial";
 
-
-// Japanese texts
-let introJapanese = `折り紙は日本の伝統的な紙の折り方の芸術であり、一枚の紙を切ったり
-糊を使ったりせずに美しい形に変えることができます。長い年月を経て、
-折り紙は文化的な実践から世界中の人々に楽しまれる創造的な芸術へと進化しました。 <br> <br>
-&nbsp; 折り紙の基本的な原則は、正方形の紙を折りたたむことに基づいており、
-さまざまな形やデザインを作成するためにさまざまな折り方が使用されます。 折り紙の人気のあるデザインには、鶴、花、動物、幾何学的な形などがあります。 折り紙は、子供から大人まで、あらゆる年齢層の人々に楽しまれています。
-折り紙を通じて、創造性、集中力、忍耐力を育むことができます。 <br> <br>
-&nbsp; 折り紙は単なる趣味ではなく、数学、エンジニアリング、デザインなどの分野でも応用されています。 折り紙の技術は、折りたたみ式の構造、医療機器、宇宙工学など、さまざまな分野で革新的なソリューションを生み出すために使用されています。 <br> <br>
-&nbsp; 折り紙の魅力は、そのシンプルさと無限の可能性にあります。 一枚の紙から始まり、折りたたむことで複雑で美しい形が生まれます。 折り紙は、創造性を刺激し、手先の器用さを向上させる素晴らしい方法です。 折り紙の世界に足を踏み入れ、紙を折りたたむことで驚くべき可能性を発見しましょう`;
-
-let aboutJapanese = `折り紙は千年以上前に日本で生まれ、儀式的な実践であると同時に芸術的な表現でもありました。
-「折り紙」という言葉は、日本語の「折る（ori）」と「紙（kami）」から来ています。`;
-
-let isEnglish = true;
-
-toggleLang.addEventListener("click", () => {
-    if (isEnglish) {
-        para.innerHTML = introJapanese + "<br><br>" + aboutJapanese;
-        toggleLang.innerText = "Switch to English";
-        isEnglish = false;
-    } else {
-        para.innerHTML = introEnglish;
-        para.innerHTML = aboutEnglish;
-        toggleLang.innerText = "日本語 / English";
-        isEnglish = true;
+function renderEnglishView(view) {
+    if (!aboutContent) {
+        return;
     }
-});
 
-// So grab a piece of paper and start folding your way
+    if (view === "summary") {
+        aboutContent.innerHTML = englishSummary;
+    } else if (view === "full") {
+        aboutContent.innerHTML = englishFull;
+    } else {
+        aboutContent.innerHTML = englishInitial;
+    }
+}
 
+if (aboutContent) {
+    renderEnglishView("initial");
+}
+
+if (summariseButton && readMoreButton && languageButton && resetButton) {
+    summariseButton.addEventListener("click", () => {
+        aboutContent.innerHTML = currentLanguage === "en" ? englishSummary : japaneseText;
+        currentView = "summary";
+        readMoreButton.style.display = "Block";
+        summariseButton.style.display = "None";
+        readMoreButton.textContent = "Read more";
+        languageButton.style.display = "None";
+        resetButton.style.display = "Block";
+    });
+
+    readMoreButton.addEventListener("click", () => {
+        aboutContent.innerHTML = currentLanguage === "en" ? englishFull : japaneseText;
+        currentView = "full";
+        readMoreButton.style.display = "None";
+        summariseButton.style.display = "Block";
+        languageButton.style.display = "Block";
+    });
+
+    languageButton.addEventListener("click", () => {
+        if (currentLanguage === "en") {
+            aboutContent.innerHTML = japaneseText;
+            currentLanguage = "jp";
+            languageButton.textContent = "English";
+            summariseButton.style.display = "None";
+            readMoreButton.style.display = "None";
+        } else {
+            renderEnglishView(currentView);
+            currentLanguage = "en";
+            languageButton.textContent = "Japanese / English";
+            summariseButton.style.display = "Block";
+        }
+    });
+
+    resetButton.addEventListener("click", () => {
+        renderEnglishView("initial");
+        currentLanguage = "en";
+        currentView = "initial";
+        resetButton.style.display = "none";
+        languageButton.style.display = "Block";
+        languageButton.textContent = "Japanese / English";
+        summariseButton.style.display = "Block";
+        readMoreButton.style.display = "None";
+    });
+}
+
+if (reloadButton) {
+    reloadButton.addEventListener("click", () => {
+        window.location.reload();
+    });
+}
+
+if (backToTop) {
+    window.addEventListener("scroll", () => {
+        backToTop.style.display = window.scrollY > 400 ? "block" : "none";
+    });
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+if (footerCreatorLink && origamiLoader) {
+    footerCreatorLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        const destination =
+            footerCreatorLink.dataset.aboutUrl || footerCreatorLink.getAttribute("href");
+
+        origamiLoader.classList.add("is-active");
+        origamiLoader.setAttribute("aria-hidden", "false");
+
+        window.setTimeout(() => {
+            window.location.href = destination;
+        }, 1150);
+    });
+}

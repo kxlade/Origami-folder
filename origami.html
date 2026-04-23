@@ -3,86 +3,72 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="gallery">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Learn origami - the art of paper folding with tutorials for beginners and advanced folders">
   <title>OrigamiForAll</title>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="origami.css" />
+  <link rel="stylesheet" href="origami.css">
 </head>
 
-<body>
+<body id="boddy">
+  <div class="utility-bar">
+    <p class="device-pill" data-device-label data-prefix="Origami for">Origami for your device</p>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode">
+      <span class="theme-visual" aria-hidden="true">
+        <span class="theme-cloud">
+          <span class="cloud-puff puff-one"></span>
+          <span class="cloud-puff puff-two"></span>
+          <span class="cloud-puff puff-three"></span>
+        </span>
+        <span class="theme-bat">
+          <span class="bat-wing wing-left"></span>
+          <span class="bat-body"></span>
+          <span class="bat-wing wing-right"></span>
+        </span>
+        <span class="theme-thumb"></span>
+      </span>
+      <span class="theme-copy">
+        <span class="theme-copy-top">Theme</span>
+        <span class="theme-copy-bottom" data-theme-label>Light mode</span>
+      </span>
+    </button>
+  </div>
   <header id="header">
     <h1>Welcome to Origami</h1>
-    <p style="
-          font-size: large;
-          font-family:
-            &quot;Franklin Gothic Medium&quot;, &quot;Arial Narrow&quot;, Arial,
-            sans-serif;
-        ">
-      <marquee behavior="" direction="right">
-        The Premier Destination where you get to make cool stuff - with
-        <strong>only</strong> a sheet of paper!
+    <p class="header-banner">
+      <marquee class="header-marquee" behavior="" direction="right">
+        The Premier Destination where you get to make cool stuff - with <strong>only</strong>
+        a sheet of paper!
       </marquee>
+      <span class="header-static">
+        The calm little corner where one sheet of paper turns into something cool.
+      </span>
     </p>
   </header>
-  <nav>
+  <nav id="navbar">
     <a href="#about"> About Us</a>
     <a href="#categories">Categories</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact Us</a>
-    <a href="#contact">Feedback &questeq;</a>
-    <a href="">
-      <button>Sign up</button>
-    </a>
+    <a href="#contact">Feedback ⁉️</a>
   </nav>
 
-  <section id="about" class="about">
-    <h1 class="head">Introduction to Origami</h1>
-    <p>
-      Origami is the traditional Japanese art of paper folding, where a single
-      sheet of paper is transformed into beautiful shapes without cutting or
-      using glue. Over the years, origami has evolved from a cultural practice
-      into a creative art form enjoyed by people of all ages across the world.
-      This website is designed to showcase the beauty, creativity, and
-      educational value of origami through various designs, categories, and
-      step-by-step instructions. <br />
-      <br />
-      &nbsp; The Origami Website serves as a complete guide for beginners,
-      children, and advanced learners who are interested in learning paper
-      folding techniques. It highlights different origami designs such as
-      animals, birds, flowers, faces, and many more, while also providing
-      easy-to-follow steps and images for each design. The website is
-      structured in a user-friendly manner to help visitors explore origami
-      designs based on their skill level and interest. This platform not only
-      promotes creativity but also helps improve concentration, patience, and
-      problem-solving skills. By exploring this website, users can learn the
-      art of origami in a simple and enjoyable way while appreciating the
-      cultural and artistic value behind every fold.
-    </p>
-    <p>
-      You will find lots of wonderful origami models to fold at <a href="https://origami.guide/"
-        style="color: black; font-weight: bolder;"> origami.guide</a>, many of which are unique and can’t be
-      found anywhere else! Origami is extremely enjoyable and gives a great sense of accomplishment after folding a
-      model.
-    </p>
+  <button id="relodd" style="margin-top: 10px" aria-label="Reload page">Reload</button>
 
-    <h1 class="head">About Origami</h1>
-    <p>
-      Origami originated in Japan over a thousand years ago, where it was
-      considered both a ceremonial practice and a form of artistic expression.
-      The word <em>origami</em> comes from two Japanese words: ori (folding)
-      and kami (paper). Over time, origami spread across cultures, evolving
-      into a global art form that blends tradition with innovation. Today,
-      origami is not only a hobby but also a tool used in education,
-      mathematics, and even engineering, proving that a simple fold can lead
-      to extraordinary possibilities.
-    </p>
-    <p>Learn more about the origins of origami <a href="https://origami.guide/history-of-origami/"
-        style="color: black; font-weight: bolder;"> here</a>.</p>
-    <button id="sumar">Summarise</button>
-    <button id="readmore">Read More</button>
-    <button id="toggleLang">日本語 / English</button>
+  <section id="about" class="about">
+
+    <!-- THIS is the ONLY thing JS will touch -->
+    <div id="about-content"></div>
+
+    <nav class="about-buttons">
+      <button id="origami_def">What even is this <em>"Origami"</em><br> 😕😵‍💫🥀</button>
+      <button id="summarise">Ain't reading allat 🥀? <br> <strong style="font-size: large;">Summarise</strong></button>
+      <button id="readmore" style="display: none;"></button>
+      <button id="toggleLang">Japanese / English</button>
+      <button id="resetAbout" style="display: none;">&leftarrow; Back to Intro and About </button>
+    </nav>
   </section>
 
   <section class="about">
@@ -98,7 +84,10 @@
       gallery, feedback form, and contact page to improve user engagement and
       communication.
     </p>
-    <p>We’d like everyone to learn origami and enjoy the many wonderful benefits it can bring to your life.</p>
+    <p>
+      We’d like everyone to learn origami and enjoy the many wonderful
+      benefits it can bring to your life.
+    </p>
   </section>
 
   <section id="categories">
@@ -138,6 +127,7 @@
         and start folding today!
       </p>
     </div>
+
     <a href="https://origami.guide/origami-animals/origami-birds/easy-origami-bird/">
       <img src="origami images/origami-bird-tutorial-00-400x400.jpg" alt="" />
     </a>
@@ -147,7 +137,7 @@
     </a>
 
     <a href="https://origami.guide/origami-animals/origami-birds/origami-sleeping-rabbit/">
-      <img src="animal origami/origami-sleeping-rabbit-tutorial-00-400x400.jpg" alt="" />
+      <img src="animal origami/origami-sleeping-rabbit-tutorial-00-400x400.jpg" alt="" loading="lazy" />
     </a>
 
     <a href="https://origami.guide/origami-animals/origami-birds/origami-rabbit-mask-face/">
@@ -198,7 +188,7 @@
         <p>Mothers Day</p>
         <img src="seasonal images/origami-gift-bag-tutorial-00-400x400.jpg" alt="" />
       </a>
-      <a href="https://origami.guide/instructions/holiday-origami/halloween-origami/" style="color: black">
+      <a href="https://origami.guide/instructions/holiday-origami/halloween-origami/">
         <p>Halloween</p>
         <img src="seasonal images/origami-halloween-origami-guide-400x400.jpg" alt="" />
       </a>
@@ -278,9 +268,10 @@
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <form method="post" action="">
+    <form method="post" action="#">
       <label for="name">Name:</label><br />
-      <input type="text" id="name" name="name" placeholder="For example: Onasanya Kolade" /> <br /><br />
+      <input type="text" id="name" name="name" placeholder="For example: Onasanya Kolade" />
+      <br /><br />
 
       <label for="email">Email:</label><br />
       <input type="email" id="email" name="email" placeholder="For example: kolade@example.com" /><br /><br />
@@ -298,68 +289,75 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <b style="margin: 7px; margin-left: 45px">ORIGAMI &trade;</b>
-    <div id="writings">
-      <div style="margin: auto">
-        <b>Services</b>
-        <p>App development</p>
-        <p>Web development</p>
-        <p>DevOps</p>
-        <p>Web designing</p>
-      </div>
+  <footer class="site-footer">
+    <div class="footer-top">
+      <b class="footer-mark">ORIGAMI &trade;</b>
+      <a href="about_me.html" class="footer-creator" id="footerCreatorLink" data-about-url="about_me.html">
+        <span class="footer-creator-photo-wrap">
+          <img src="creator image/IMG_9673~2.jpg" alt="Portrait of Onasanya Zion" class="footer-creator-photo" />
+          <span class="footer-creator-tooltip">Click to know more about me</span>
+        </span>
+        <span class="footer-creator-copy">
+          <span class="footer-creator-label">Creator Spotlight</span>
+          <span class="footer-creator-name">Onasanya Zion</span>
+          <span class="footer-creator-role">Software Engineering Student | Junior Developer</span>
+        </span>
+      </a>
+    </div>
 
-      <div style="margin: auto">
+    <div id="writings" class="footer-grid">
+      <div class="footer-column">
         <b>Social</b>
-        <p><a href=""> LinkedIn</a></p>
-        <p><a href=""> Twitter</a></p>
-        <p><a href=""> Github</a></p>
-        <p><a href=""> Code pen</a></p>
-        <p><a href=""> Instagram</a></p>
+        <p><a href="https://github.com/kxlade" target="_blank" rel="noreferrer">GitHub</a></p>
+        <p><a href="https://instagram.com/kxlxde" target="_blank" rel="noreferrer">Instagram</a></p>
+        <p><a href="https://wa.me/2347026056623" target="_blank" rel="noreferrer">WhatsApp</a></p>
+        <p><a href="mailto:kolade525@gmail.com">Email</a></p>
       </div>
 
-      <div style="margin: auto">
+      <div class="footer-column">
         <b>Quick links</b>
         <p><a href="#header">Home</a></p>
-        <p><a href="#about"> About</a></p>
-        <p>Blogs</p>
-        <p><a href="#contact"> Contact</a></p>
+        <p><a href="#about">About</a></p>
+        <p><a href="#gallery">Gallery</a></p>
+        <p><a href="#contact">Contact</a></p>
       </div>
 
-      <div style="margin: auto">
-        <b>Address</b>
-        <p>Aptech Lorem ipsum dolor earum illum</p>
-
+      <div class="footer-column">
+        <b>Base</b>
+        <p>Aptech Computer Education, Surulere Lagos</p>
         <b>Mobile</b>
-        <p>+234 - 93***</p>
-
-        <b>Email</b> <br />
-        <br />
-        <a href="mailto: " style="text-decoration: none; color: gold">
-          kolade525@gmail.com
-        </a>
-        <br />
-        <br />
-        <a href="mailto: " style="text-decoration: none; color: gold">
-          igwemunachi239@gmail.com
-        </a>
+        <p><a href="tel:+2347026056623">+234 7026 056 623</a></p>
+        <b>Creator note</b>
+        <p>Built with patience, paper folds, and a student-sized amount of sleep.</p>
       </div>
     </div>
+
     <hr />
-    <p style="text-align: center; padding-bottom: 11px">
-      &copy; 2025 Website made with love by Kolade, Munachi. All rights
-      reserved.
+    <p class="footer-credit">
+      &copy; 2026 Website made with love by Zion
     </p>
   </footer>
+
+  <div class="origami-loader" id="origamiLoader" aria-hidden="true">
+    <div class="origami-loader-panel">
+      <div class="origami-loader-stack" aria-hidden="true">
+        <span class="origami-sheet sheet-one"></span>
+        <span class="origami-sheet sheet-two"></span>
+        <span class="origami-sheet sheet-three"></span>
+      </div>
+      <p>Folding some paper magic before opening the creator page...</p>
+    </div>
+  </div>
+
+
   <!-- FOOTER END-->
-  <div class="back-to-top" style="display: block;">
-    <a href="#header">
-      <img
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABQ1JREFUeNrkW1lP1FAUvm2n48KAoqDiRogSt6jRRBPGF33TaPTB7Qf4u/wBxrhgjNEHoy9i1AfiFpUocURQx3FBiODMdOo58N1QazszHW5Lp5zky4TQ3t7vnnPPdltNhCethA7CGkIGf8vfVlwzAUw6fvOEAv5WLpri8VYSugmbCJsJ6wkGoUKwXZDPd0InWIQxwgfCCOE9YTxuhJlcHwgy6aWEEqHc4HgpgkmYJvwgfCI8xCIsKGE21yxhN2EZNGk5NDhf0WEhPM8pwnPCAMw+UsKrCAcI+wht0KYtwhUNWv9FGCQ8IXyPgvAOwlHCWhC1RLRigPgXwm3Cq6A3BzEv3qcn4WWLEWjVS2z4Bp7Ddiz6aL1zqZfwUmj1MKzCEgsvFcy/l9ACh1ZWQZhX8ixhLx5SEfERGwrgKNFFGIblNUw4TTjnMB1bxE9kXGef0ok9bTVCmP93DJqNK1m3iXdi+73zm281wn3Ys1YTkHVqeyNi9kgQwtvhjbUmIusMtT0IWwWvUOOWdphyOmYOKohpp8GhvR7CBx1JRbNKCRwO1iK8BuliM5N1kt4HTr6Es8iNrQQQtsAl60eYa9g9CdGuU8t7wO0/wlnEMDtBhG1wyroJr0BqVhHJkwq4rXAS7oYLtxJI2AK3bklYJt9RmnMaHRIjQrNmjhr3jjJgX47g4dKiOMH/imZCRwSOsgyOmRQe2BXBQ1Mo3e6iPVPE73HCNkwqLAsrgWOHjgrDCNmkUkjorxEeOGrWb4RLhJe4JuzWUGcKBb4d8n7lpnq/8O4//cFCsC/ZGaKlMcdWHYQrIZLl04SronqzjbV/hfAG94QVnmYIZ0LSsAnNMpGhOq6fhqY/grQdgoYzUsNhOKhJEBgKcB8v0GV48DA0HYpJmzBR3rOvfa7ZRTji87+vsIpxxaRnTJo91yGFA+swzX54Xi/heHgGXRW2glGPa5gsnydtJSxRZN7sFEsGqok2BYPKU4ybhKc+13Btel7MHrhVQD6P8OQWPkT7ieRExaEfc/2mC3XnsGns10Gf/3M+ew5xv4gcl9PLU4QNPve8wLZQZYETOsxK1Qp+9rGU5TDj9SCrOVI+XojTXv0nSF5RYsTPnJQa1hW5/SVenhFke4T3qQAnHutAus1nsWxF/mXCgIntUFAa8qRaQKCE0LSFcAK/pRol3GpUNEVHScfefD/Gmi9pHuOp7OFeUFQt6eLfQ/EUUA4wqTLu18TcYbiKsMljX+QJFhACTEWxThNzryxoARey7LjfwKKpIGuCY0E6rZzCasXr5ZVG71eZ+eWk0+KBPyBhUP1WTxxEAzfmaEvvnEOgNxJI2AC3nLPlIlM5PYGEdXAbFy6CAwk0a2nOA+6mGgufpz5T5K3jIiY4jXgRllr+lZC9bIDLgNu+3XnrYEK0bIJLvhphlsdi9vTcbHKyX8DlP7V79ZZkHWqI5jtc05GxXRez/bGahAXSTU72e5vQKzPhO351eTXnNIbSbHOTaFnm4I8I90UDry3xDe9RtK8V8T5K1dAVeQNTLldz3aJGnTqMmrnTsRBx27MpkOWG/1StWFVLihiMuxkbRbze3ZLHvWzGNwi/6wnO9dapb+HBe0Q83uEyMS92UPdEnWdSQTIqGylaXsx922AvgLYNWBs37Pvhje0gNwcVDllDMPXV8OSVCB0TNyz4g49bwud9ylqDzEcWzUceblk0n/G4ZdF8qOUlsfwU768AAwBvlGfu64jWvQAAAABJRU5ErkJggg=="
-        alt="" width="45px">
-    </a>
+  <div class="back-to-top" style="display: block">
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABQ1JREFUeNrkW1lP1FAUvm2n48KAoqDiRogSt6jRRBPGF33TaPTB7Qf4u/wBxrhgjNEHoy9i1AfiFpUocURQx3FBiODMdOo58N1QazszHW5Lp5zky4TQ3t7vnnPPdltNhCethA7CGkIGf8vfVlwzAUw6fvOEAv5WLpri8VYSugmbCJsJ6wkGoUKwXZDPd0InWIQxwgfCCOE9YTxuhJlcHwgy6aWEEqHc4HgpgkmYJvwgfCI8xCIsKGE21yxhN2EZNGk5NDhf0WEhPM8pwnPCAMw+UsKrCAcI+wht0KYtwhUNWv9FGCQ8IXyPgvAOwlHCWhC1RLRigPgXwm3Cq6A3BzEv3qcn4WWLEWjVS2z4Bp7Ddiz6aL1zqZfwUmj1MKzCEgsvFcy/l9ACh1ZWQZhX8ixhLx5SEfERGwrgKNFFGIblNUw4TTjnMB1bxE9kXGef0ok9bTVCmP93DJqNK1m3iXdi+73zm281wn3Ys1YTkHVqeyNi9kgQwtvhjbUmIusMtT0IWwWvUOOWdphyOmYOKohpp8GhvR7CBx1JRbNKCRwO1iK8BuliM5N1kt4HTr6Es8iNrQQQtsAl60eYa9g9CdGuU8t7wO0/wlnEMDtBhG1wyroJr0BqVhHJkwq4rXAS7oYLtxJI2AK3bklYJt9RmnMaHRIjQrNmjhr3jjJgX47g4dKiOMH/imZCRwSOsgyOmRQe2BXBQ1Mo3e6iPVPE73HCNkwqLAsrgWOHjgrDCNmkUkjorxEeOGrWb4RLhJe4JuzWUGcKBb4d8n7lpnq/8O4//cFCsC/ZGaKlMcdWHYQrIZLl04SronqzjbV/hfAG94QVnmYIZ0LSsAnNMpGhOq6fhqY/grQdgoYzUsNhOKhJEBgKcB8v0GV48DA0HYpJmzBR3rOvfa7ZRTji87+vsIpxxaRnTJo91yGFA+swzX54Xi/heHgGXRW2glGPa5gsnydtJSxRZN7sFEsGqok2BYPKU4ybhKc+13Btel7MHrhVQD6P8OQWPkT7ieRExaEfc/2mC3XnsGns10Gf/3M+ew5xv4gcl9PLU4QNPve8wLZQZYETOsxK1Qp+9rGU5TDj9SCrOVI+XojTXv0nSF5RYsTPnJQa1hW5/SVenhFke4T3qQAnHutAus1nsWxF/mXCgIntUFAa8qRaQKCE0LSFcAK/pRol3GpUNEVHScfefD/Gmi9pHuOp7OFeUFQt6eLfQ/EUUA4wqTLu18TcYbiKsMljX+QJFhACTEWxThNzryxoARey7LjfwKKpIGuCY0E6rZzCasXr5ZVG71eZ+eWk0+KBPyBhUP1WTxxEAzfmaEvvnEOgNxJI2AC3nLPlIlM5PYGEdXAbFy6CAwk0a2nOA+6mGgufpz5T5K3jIiY4jXgRllr+lZC9bIDLgNu+3XnrYEK0bIJLvhphlsdi9vTcbHKyX8DlP7V79ZZkHWqI5jtc05GxXRez/bGahAXSTU72e5vQKzPhO351eTXnNIbSbHOTaFnm4I8I90UDry3xDe9RtK8V8T5K1dAVeQNTLldz3aJGnTqMmrnTsRBx27MpkOWG/1StWFVLihiMuxkbRbze3ZLHvWzGNwi/6wnO9dapb+HBe0Q83uEyMS92UPdEnWdSQTIqGylaXsx922AvgLYNWBs37Pvhje0gNwcVDllDMPXV8OSVCB0TNyz4g49bwud9ylqDzEcWzUceblk0n/G4ZdF8qOUlsfwU768AAwBvlGfu64jWvQAAAABJRU5ErkJggg=="
+      alt="" width="45px" id="topp" />
   </div>
 </body>
+<script src="site_ui.js"></script>
 <script src="origami.js"></script>
 
 </html>
