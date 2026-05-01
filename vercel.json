@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/origami.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about_me.html"
+    }
+  ]
+}

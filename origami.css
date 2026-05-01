@@ -856,21 +856,21 @@ header h1 {
 }
 
 section {
-  max-width: 900px;
-  margin: 25px auto;
   padding: 25px;
+  margin: 25px auto;
+  background-color: white;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+  background-size: 0.1px 25px;
+  
+  max-width: 900px;
   color: var(--app-text);
   background-color: var(--app-section-bg);
-  background-image: var(--app-section-grid);
-  background-size: 25px 25px;
   border: 1px solid var(--app-section-border);
   border-radius: 8px;
   box-shadow: var(--app-shadow);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition:all 0.3s ease;
 }
 
 section:hover {
@@ -1553,7 +1553,7 @@ body.is-mobile-device .category-card {
 
   #navbar {
     flex-direction: column;
-    gap: 18px;
+    gap: 15px;
   }
 
   section {
@@ -1589,6 +1589,9 @@ body.is-mobile-device .category-card {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+  .theme-switch{
+    margin: auto;
   }
 }
 
