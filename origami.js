@@ -7,6 +7,8 @@ const reloadButton = document.getElementById("relodd");
 const backToTop = document.querySelector(".back-to-top");
 const footerCreatorLink = document.getElementById("footerCreatorLink");
 const origamiLoader = document.getElementById("origamiLoader");
+const overlayToggle = document.getElementById("op");
+const overlayLinks = document.querySelectorAll(".overlay a[href^='#']");
 
 const englishInitial = `
     <h1 class="head">Introduction to Origami</h1>
@@ -174,11 +176,157 @@ if (backToTop) {
     });
 }
 
+if (overlayToggle && overlayLinks.length > 0) {
+    overlayLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const targetId = link.getAttribute("href");
+            const targetSection = targetId ? document.querySelector(targetId) : null;
+
+            if (!targetSection) {
+                return;
+            }
+
+            event.preventDefault();
+            overlayToggle.checked = false;
+
+            window.setTimeout(() => {
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }, 380);
+        });
+    });
+}
+
+// ===== SEARCH BAR FUNCTIONALITY =====
+const searchIconBtn = document.querySelector('.search-icon-btn');
+const searchInput = document.querySelector('.search-input');
+const searchBarContainer = document.querySelector('.search-bar-container');
+const bodyElement = document.body;
+
+// 1. TOGGLE SEARCH BAR WHEN ICON IS CLICKED
+searchIconBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click from triggering "click outside" logic
+
+    // Toggle the active class
+    searchInput.classList.toggle('active');
+
+    // If activating, focus on the input so user can type immediately
+    if (searchInput.classList.contains('active')) {
+        searchInput.focus();
+        searchInput.value = ''; // Clear previous search
+    }
+});
+
+// 2. CLOSE SEARCH BAR WHEN CLICKING OUTSIDE
+document.addEventListener('click', (e) => {
+    // If click is outside the search bar container, close the search bar
+    if (!searchBarContainer.contains(e.target)) {
+        searchInput.classList.remove('active');
+        clearSearch(); // Clear search results
+    }
+});
+
+// 3. SEARCH FUNCTIONALITY - AS USER TYPES
+searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase().trim();
+
+    if (searchTerm === '') {
+        // If search box is empty, show everything
+        clearSearch();
+    } else {
+        // Search through the page
+        performSearch(searchTerm);
+    }
+});
+
+// 4. SEARCH FUNCTION - Filter and highlight content
+function performSearch(searchTerm) {
+    // Get all sections that contain searchable content
+    const sections = document.querySelectorAll('section, .gallery');
+    let foundAny = false;
+
+    sections.forEach((section) => {
+        const sectionText = section.textContent.toLowerCase();
+
+        if (sectionText.includes(searchTerm)) {
+            // Show the section if it contains the search term
+            section.classList.remove('hidden-search');
+            foundAny = true;
+
+            // Highlight matching text within headings and paragraphs
+            highlightMatches(section, searchTerm);
+        } else {
+            // Hide the section if it doesn't contain the search term
+            section.classList.add('hidden-search');
+        }
+    });
+
+    // Also search in gallery images and links
+    searchGalleryItems(searchTerm);
+}
+
+// 5. HIGHLIGHT MATCHES - Show where the search term appears
+function highlightMatches(container, searchTerm) {
+    // Find all text nodes and highlight matches
+    const headings = container.querySelectorAll('h1, h2, h3, p');
+
+    headings.forEach((element) => {
+        const originalText = element.textContent;
+
+        // Only highlight if it's not already highlighted
+        if (!element.innerHTML.includes('search-highlight')) {
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            const newHTML = originalText.replace(
+                regex,
+                '<span class="search-highlight">$1</span>'
+            );
+            element.innerHTML = newHTML;
+        }
+    });
+}
+
+// 6. SEARCH GALLERY ITEMS
+function searchGalleryItems(searchTerm) {
+    const galleryLinks = document.querySelectorAll('.gallery a');
+
+    galleryLinks.forEach((link) => {
+        const linkText = link.textContent.toLowerCase();
+        const linkHref = link.getAttribute('href').toLowerCase();
+
+        if (linkText.includes(searchTerm) || linkHref.includes(searchTerm)) {
+            link.closest('.gallery').classList.remove('hidden-search');
+        }
+    });
+}
+
+// 7. CLEAR SEARCH - Reset everything
+function clearSearch() {
+    // Remove hidden-search class from all sections
+    document.querySelectorAll('section, .gallery').forEach((section) => {
+        section.classList.remove('hidden-search');
+    });
+
+    // Remove highlights
+    document.querySelectorAll('.search-highlight').forEach((highlight) => {
+        const parent = highlight.parentNode;
+        parent.textContent = parent.textContent; // Remove span tags
+    });
+
+    // Clear input
+    searchInput.value = '';
+}
+
+// 8. PREVENT SEARCH FROM CLOSING WHEN TYPING
+searchInput.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
 if (footerCreatorLink && origamiLoader) {
     footerCreatorLink.addEventListener("click", (event) => {
         event.preventDefault();
-        const destination =
-            footerCreatorLink.dataset.aboutUrl || footerCreatorLink.getAttribute("href");
+        const destination = footerCreatorLink.dataset.aboutUrl || footerCreatorLink.getAttribute("href");
 
         origamiLoader.classList.add("is-active");
         origamiLoader.setAttribute("aria-hidden", "false");

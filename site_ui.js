@@ -1,4 +1,5 @@
 const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
+const themeSwitchCheckbox = document.querySelector(".theme-switch__checkbox");
 const deviceLabels = document.querySelectorAll("[data-device-label]");
 const root = document.documentElement;
 const body = document.body;
@@ -52,6 +53,11 @@ function updateDeviceLabels() {
 function setTheme(theme) {
     root.dataset.theme = theme;
 
+    if (themeSwitchCheckbox) {
+        themeSwitchCheckbox.checked = theme === "dark";
+        themeSwitchCheckbox.setAttribute("aria-checked", String(theme === "dark"));
+    }
+
     themeToggleButtons.forEach((button) => {
         const themeLabel = button.querySelector("[data-theme-label]");
         button.setAttribute("aria-pressed", String(theme === "dark"));
@@ -83,6 +89,14 @@ function initializeThemeToggle() {
             window.localStorage.setItem(THEME_KEY, currentTheme);
         });
     });
+
+    if (themeSwitchCheckbox) {
+        themeSwitchCheckbox.addEventListener("change", () => {
+            currentTheme = themeSwitchCheckbox.checked ? "dark" : "light";
+            setTheme(currentTheme);
+            window.localStorage.setItem(THEME_KEY, currentTheme);
+        });
+    }
 }
 
 updateDeviceLabels();
